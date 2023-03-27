@@ -1,5 +1,6 @@
 package com.hosptal.hospital.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,9 +20,10 @@ public class Consultation {
 
     @Temporal(TemporalType.DATE)
     private Date dateConsultation;
-    @Temporal(TemporalType.DATE)
-    private Date rapportConsultation;
+
+    private String rapportConsultation;
     @OneToOne
+    @JsonProperty(access=JsonProperty.Access.WRITE_ONLY)
     private RendezVous rendezVous;
 
 
